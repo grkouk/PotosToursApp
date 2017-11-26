@@ -1,6 +1,8 @@
 ﻿using PotosToursApp.ViewModels;
 using PotosToursApp.Views;
 using DryIoc;
+using PotosToursApp.Models;
+using PotosToursApp.Services;
 using Prism.DryIoc;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -28,6 +30,7 @@ namespace PotosToursApp
 
         protected override void RegisterTypes()
         {
+            Container.Register<IDataStore<Facility>,FacilitiesDataStore>();
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<MainPage>();
 
