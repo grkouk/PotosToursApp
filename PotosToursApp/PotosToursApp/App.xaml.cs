@@ -35,6 +35,7 @@ namespace PotosToursApp
             Container.RegisterTypeForNavigation<MainPage>();
 
             Container.RegisterTypeForNavigation<FacilitiesPage>();
+            Container.RegisterTypeForNavigation<FacilityPage>();
         }
     }
 }

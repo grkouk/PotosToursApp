@@ -6,19 +6,17 @@
                 x:Class="PotosToursApp.Views.FacilitiesPage">
    
     <ContentPage.Content>
-        <!--<StackLayout>
-            <Entry Placeholder="Facility Name" Text="{Binding Name}" />
-            <Entry Placeholder="Short Description" Text="{Binding ShortDescription}" />
-            <Entry Placeholder="Description" Text="{Binding Description}" />
-            <Button Text="Save" Command="{Binding SaveCommand}"></Button>
-        </StackLayout>-->
-        <ListView ItemsSource="{Binding FacilitiesCollection}">  
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Name}" Detail="{Binding ShortDescription}"></TextCell>
-                    
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackLayout>
+            <Button Text="Add" Command="{Binding AddCommand}"></Button>
+            <ListView ItemsSource="{Binding FacilitiesCollection}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding ShortDescription}"></TextCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

@@ -8,5 +8,6 @@ namespace PotosToursApp.Services
     public interface IDataStore<T>
     {
         Task<IEnumerable<T>> GetItemsAsync();
+        Task<bool> AddItemAsync(T item);
     }
 }

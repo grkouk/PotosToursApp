@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -38,6 +39,36 @@ namespace PotosToursApp.Services
                 //throw;
             }
             
+        }
+
+        public async Task<bool> AddItemAsync(Facility item)
+        {
+            var httpClient = new HttpClient();
+            var jsonFacility =  JsonConvert.SerializeObject(item);
+            try
+            {
+
+                var uri = new Uri(BaseUrl);
+                HttpContent httpContent = new StringContent(jsonFacility);
+                httpContent.Headers.ContentType=new MediaTypeHeaderValue("application/json");
+                httpClient.DefaultRequestHeaders.Accept
+                    .Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var response = await httpClient.PostAsync(uri, httpContent);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return await Task.FromResult(true);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return await Task.FromResult(false);
+                //throw;
+            }
+            return await Task.FromResult(false);
+
         }
     }
 }
