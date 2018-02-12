@@ -13,7 +13,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DryIoc;
+using Prism;
 using Prism.DryIoc;
+using Prism.Ioc;
 
 namespace PotosToursApp.UWP
 {
@@ -29,9 +31,11 @@ namespace PotosToursApp.UWP
 
     public class UwpInitializer : IPlatformInitializer
     {
-        public void RegisterTypes(IContainer container)
-        {
+       
 
+        public void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            //throw new NotImplementedException();
         }
     }
 }

@@ -2,7 +2,9 @@
 using Android.Content.PM;
 using Android.OS;
 using DryIoc;
+using Prism;
 using Prism.DryIoc;
+using Prism.Ioc;
 
 namespace PotosToursApp.Droid
 {
@@ -23,9 +25,11 @@ namespace PotosToursApp.Droid
 
     public class AndroidInitializer : IPlatformInitializer
     {
-        public void RegisterTypes(IContainer container)
+       
+
+        public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            // Register any platform specific implementations
+       //     throw new System.NotImplementedException();
         }
     }
 }

@@ -7,8 +7,8 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.Net.Http" Version="4.3.3" />
-    <PackageReference Include="Xamarin.Forms" Version="2.4.0.282" />
-    <PackageReference Include="Prism.DryIoc.Forms" Version="7.0.0.168-pre" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="7.0.0.396" />
   </ItemGroup>
 
 </Project>

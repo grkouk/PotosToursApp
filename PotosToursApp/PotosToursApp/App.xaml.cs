@@ -3,7 +3,9 @@ using PotosToursApp.Views;
 using DryIoc;
 using PotosToursApp.Models;
 using PotosToursApp.Services;
+using Prism;
 using Prism.DryIoc;
+using Prism.Ioc;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,6 +23,8 @@ namespace PotosToursApp
 
         public App(IPlatformInitializer initializer) : base(initializer) { }
 
+       
+
         protected override async void OnInitialized()
         {
             InitializeComponent();
@@ -28,14 +32,14 @@ namespace PotosToursApp
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
-        protected override void RegisterTypes()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            Container.Register<IDataStore<Facility>,FacilitiesDataStore>();
-            Container.RegisterTypeForNavigation<NavigationPage>();
-            Container.RegisterTypeForNavigation<MainPage>();
+            containerRegistry.Register<IDataStore<Facility>,FacilitiesDataStore>();
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainPage>();
 
-            Container.RegisterTypeForNavigation<FacilitiesPage>();
-            Container.RegisterTypeForNavigation<FacilityPage>();
+            containerRegistry.RegisterForNavigation<FacilitiesPage>();
+            containerRegistry.RegisterForNavigation<FacilityPage>();
         }
     }
 }
