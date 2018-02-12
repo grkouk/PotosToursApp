@@ -15,12 +15,22 @@ namespace PotosToursApp.ViewModels
 	{
 	    private IDataStore<Facility> _facilityDS;
 
+        private bool _dsInitialized = false;
+
+        private bool isBusy = false;
+	    public bool IsBusy
+	    {
+	        get { return isBusy; }
+	        set { SetProperty(ref isBusy, value); }
+	    }
         public FacilitiesPageViewModel(INavigationService navigationService, IDataStore<Facility> facilityDs) : base(navigationService)
         {
             _facilityDS = facilityDs;
         }
 
-        private ObservableCollection<Facility> _facilitiesCollection;
+	    //private ObservableCollection<Facility> _facilitiesCollection =new ObservableCollection<Facility>();
+	    private ObservableCollection<Facility> _facilitiesCollection ;
+
         public ObservableCollection<Facility> FacilitiesCollection  
         {
             get { return _facilitiesCollection; }
@@ -38,12 +48,26 @@ namespace PotosToursApp.ViewModels
 	    }
 
         
+        
 	    public override async void OnNavigatedTo(NavigationParameters parameters)
 	    {
-	        if (FacilitiesCollection == null)
+	        if (FacilitiesCollection==null)
 	        {
-	            FacilitiesCollection=new ObservableCollection<Facility>(await _facilityDS.GetItemsAsync());
-	        }
-	    }
+	            FacilitiesCollection = new ObservableCollection<Facility>(await _facilityDS.GetItemsAsync());
+            }
+
+            //if (!_dsInitialized)
+            //{
+            //    var items = await _facilityDS.GetItemsAsync();
+
+                
+            //    foreach (Facility facility in items)
+            //    {
+            //        _facilitiesCollection.Add(facility);
+            //    }
+            //    _dsInitialized = true;
+            //}
+
+        }
 	}
 }

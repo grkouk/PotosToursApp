@@ -11,7 +11,7 @@ namespace PotosToursApp.Services
 {
     public class FacilitiesDataStore:IDataStore<Facility>
     {
-        private const string BaseUrl = "http://grkoukdesktop/potosapi/api/facilities/";
+        private const string BaseUrl = "http://testapi.potos.tours/api/facilities/";
         
         public async Task<IEnumerable<Facility>> GetItemsAsync()
         {
